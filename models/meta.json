@@ -1,0 +1,147 @@
+{
+  "classes": [
+    "circles",
+    "rings",
+    "horizontal_bars",
+    "vertical_bars"
+  ],
+  "feature_dim": 1180,
+  "hidden": 192,
+  "depth": 2,
+  "n_train": 1280,
+  "n_val": 320,
+  "params": 264580,
+  "train_seconds": 52.35,
+  "history": [
+    {
+      "epoch": 1,
+      "train_acc": 0.9969,
+      "val_acc": 0.9875,
+      "val_loss": 0.0382
+    },
+    {
+      "epoch": 2,
+      "train_acc": 1.0,
+      "val_acc": 1.0,
+      "val_loss": 0.0259
+    },
+    {
+      "epoch": 3,
+      "train_acc": 1.0,
+      "val_acc": 1.0,
+      "val_loss": 0.0296
+    },
+    {
+      "epoch": 4,
+      "train_acc": 1.0,
+      "val_acc": 1.0,
+      "val_loss": 0.0565
+    },
+    {
+      "epoch": 5,
+      "train_acc": 1.0,
+      "val_acc": 1.0,
+      "val_loss": 0.0539
+    },
+    {
+      "epoch": 6,
+      "train_acc": 1.0,
+      "val_acc": 1.0,
+      "val_loss": 0.0513
+    },
+    {
+      "epoch": 7,
+      "train_acc": 1.0,
+      "val_acc": 1.0,
+      "val_loss": 0.0542
+    },
+    {
+      "epoch": 8,
+      "train_acc": 1.0,
+      "val_acc": 1.0,
+      "val_loss": 0.0585
+    },
+    {
+      "epoch": 9,
+      "train_acc": 1.0,
+      "val_acc": 1.0,
+      "val_loss": 0.0654
+    },
+    {
+      "epoch": 10,
+      "train_acc": 1.0,
+      "val_acc": 1.0,
+      "val_loss": 0.0594
+    },
+    {
+      "epoch": 11,
+      "train_acc": 1.0,
+      "val_acc": 1.0,
+      "val_loss": 0.0764
+    },
+    {
+      "epoch": 12,
+      "train_acc": 1.0,
+      "val_acc": 1.0,
+      "val_loss": 0.063
+    }
+  ],
+  "val_report": {
+    "per_class": [
+      {
+        "support": 80,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      {
+        "support": 80,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      {
+        "support": 80,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      {
+        "support": 80,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    ],
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0
+  },
+  "confusion_matrix": [
+    [
+      80,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      80,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      80,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      80
+    ]
+  ],
+  "gradient_check_max_rel_err": 0.007438952202366491
+}

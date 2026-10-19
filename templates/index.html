@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NumPy Image Classifier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="bg-glow"></div>
+
+<header>
+  <div class="brand">
+    <span class="logo">◧</span>
+    <div>
+      <h1>NumPy Image Classifier</h1>
+      <p class="sub">Hand-crafted features + a from-scratch MLP · no OpenCV, no TensorFlow</p>
+    </div>
+  </div>
+  <nav class="tabs">
+    <a href="#upload-card" class="tab active">Classify</a>
+    <a href="#metrics-card" class="tab">Model report</a>
+  </nav>
+</header>
+
+<main>
+  <!-- ======================= UPLOAD PANEL ======================= -->
+  <section class="card" id="upload-card">
+    <h2><span class="step">1</span> Upload an image</h2>
+    <form id="upload-form" enctype="multipart/form-data">
+      <div id="dropzone" tabindex="0" role="button" aria-label="Choose or drop an image file">
+        <input type="file" id="file" name="file" accept=".png,.jpg,.jpeg,.bmp,.gif,.webp" hidden>
+        <div id="dz-text">
+          <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <p>Drag &amp; drop an image here, or <span class="link">browse</span></p>
+          <small>PNG · JPG · BMP · GIF · WEBP — max 8&nbsp;MB</small>
+        </div>
+        <img id="preview" alt="" hidden>
+      </div>
+      <div class="actions">
+        <button type="submit" id="predict-btn" disabled>Classify&nbsp;→</button>
+        <button type="button" id="reset-btn" class="ghost" hidden>Clear</button>
+      </div>
+    </form>
+    <p id="error" class="error" hidden></p>
+  </section>
+
+  <!-- ======================= RESULT PANEL ======================= -->
+  <section class="card" id="result-card" hidden>
+    <h2><span class="step">2</span> Prediction</h2>
+    <div class="verdict">
+      <div class="verdict-left">
+        <div class="label">Predicted class</div>
+        <div id="pred-name" class="big"></div>
+        <div class="conf-line">
+          <span class="label">Confidence</span>
+          <span id="pred-conf" class="num"></span>
+          <span id="conf-badge" class="badge"></span>
+        </div>
+        <div class="runnerup-line">
+          <span class="label">Runner-up</span>
+          <span id="runner-up" class="mid"></span>
+        </div>
+        <div id="tta-note" class="tta-note"></div>
+      </div>
+      <figure class="thumb-wrap">
+        <img id="thumb" alt="64×64 preprocessed input">
+        <figcaption>model input (64×64)</figcaption>
+      </figure>
+    </div>
+
+    <h3>Softmax probabilities</h3>
+    <div id="bars"></div>
+
+    <details id="details-box">
+      <summary>Inference details</summary>
+      <table id="param-table"><tbody></tbody></table>
+    </details>
+  </section>
+
+  <!-- ======================= METRICS PANEL ======================= -->
+  <section class="card" id="metrics-card">
+    <h2><span class="step">3</span> Model &amp; evaluation report</h2>
+    <div id="metrics"><em>Loading metrics…</em></div>
+  </section>
+</main>
+
+<footer>
+  Built with Flask + NumPy only · 19 feature families: colour · Gabor · LBP · HOG · LoG · Canny · Hu moments · Fourier · autocorrelation · Haar · GLCM · shape · layout · thumbnail
+</footer>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
